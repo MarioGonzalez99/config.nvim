@@ -1,5 +1,69 @@
 # kickstart.nvim
 
+## Custom scripts for my configuration
+
+### Install scoop
+* Install scoop in the terminal for package management in Windows
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+### Install all dependencies in scoop
+* Install all used dependencies using scoop
+
+```
+scoop install main/7zip main/gcc main/git main/go main/make main/neovim main/oh-my-posh main/pwsh 
+```
+
+### Configure terminal using oh-my-posh (Optional)
+
+* Download JetBrainsMono Nerd Font from website: ['NerdFont'](https://www.nerdfonts.com/font-downloads)
+
+* Install fonts using right click -> Install in decompressed folder
+
+* Go to terminal Settings ->  Open JSON file -> Replace where needed
+```
+{
+  "backgroundImage": "C:\\Users\\{userName}\\OneDrive\\Pictures\\kali.jpg", // replace with location of picture
+  "backgroundImageOpacity": 0.15,
+  "font": 
+  {
+    "face": "JetBrainsMono Nerd Font Mono"
+  },
+  ...
+  "source": "Windows.Terminal.PowershellCore"
+}
+```
+
+* Get $PROFILE file path
+```
+echo $PROFILE
+```
+* Copy path and create dir if needed, for example
+```
+mkdir C:\Users\{userName}\OneDrive\Documents\PowerShell\
+```
+* Create file if needed with notepad
+```
+notepad $PROFILE
+```
+* Copy the following code and save the file, replace url with preferred terminal style
+```
+oh-my-posh --init --shell pwsh --config "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/bubblesextra.omp.json" | Invoke-Expression 
+```
+
+### Get configuration from this repo
+* Fetch this repo configurations for nvim using pwsh
+```
+git clone https://github.com/MarioGonzalez99/config.nvim.git $env:USERPROFILE\AppData\Local\nvim\
+```
+
+* Execute nvim in terminal
+```
+nvim
+```
+
 ## Introduction
 
 A starting point for Neovim that is:
