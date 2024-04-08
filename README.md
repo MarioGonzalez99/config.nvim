@@ -64,6 +64,20 @@ git clone https://github.com/MarioGonzalez99/config.nvim.git $env:USERPROFILE\Ap
 nvim
 ```
 
+### Get Go Tools used for Go plugin (Optional)
+Check for missing tools using command :checkhealth in nvim
+Verify that 'GOROOT' and 'GOBIN' are in 'PATH'
+
+```
+go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+go install github.com/josharian/impl@latest
+go install github.com/cweill/gotests/...@latest
+go install github.com/koron/iferr@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install github.com/abenz1267/gomvp@latest
+go install github.com/ChimeraCoder/gojson/gojson@latest
+```
+
 ## Introduction
 
 A starting point for Neovim that is:
