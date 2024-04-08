@@ -74,7 +74,7 @@ go install github.com/cweill/gotests/...@latest
 go install github.com/koron/iferr@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/abenz1267/gomvp@latest
-go install github.com/ChimeraCoder/gojson/gojson@latest
+go install github.com/tmc/json-to-struct@latest
 ```
 
 ## Introduction
