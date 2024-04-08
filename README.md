@@ -65,8 +65,7 @@ nvim
 ```
 
 ### Get Go Tools used for Go plugin (Optional)
-Check for missing tools using command :checkhealth in nvim
-Verify that 'GOROOT' and 'GOBIN' are in 'PATH'
+Check for missing tools using command :checkhealth in nvim. Verify that 'GOROOT' and 'GOBIN' are in 'PATH'.
 
 ```
 go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
