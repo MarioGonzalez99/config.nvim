@@ -420,8 +420,6 @@ require('lazy').setup({
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      'mfussenegger/nvim-dap',
-      'jay-babu/mason-nvim-dap.nvim',
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -604,8 +602,7 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-      ---@diagnostic disable-next-line: missing-fields
-      require('mason-nvim-dap').setup { ensure_installed = { 'delve' } }
+
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
