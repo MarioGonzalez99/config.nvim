@@ -632,7 +632,16 @@ require('lazy').setup({
     ft = { 'go', 'gomod' },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
-    
+
+  { -- Go Debbuger Plugin
+    'mfussenegger/nvim-dap',
+  },
+
+  { -- Go Debbuger UI Plugin
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
+  },
+
   { -- Autoformat
     'stevearc/conform.nvim',
     lazy = false,
