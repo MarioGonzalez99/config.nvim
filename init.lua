@@ -408,6 +408,9 @@ require('lazy').setup({
   { -- Telescope File Explorer
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+    config = function()
+      vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = '[F]ile [B]rowser' })
+    end,
   },
     
   { -- LSP Configuration & Plugins
