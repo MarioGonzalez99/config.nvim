@@ -405,6 +405,11 @@ require('lazy').setup({
     end,
   },
 
+  { -- Telescope File Explorer
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+  },
+    
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
