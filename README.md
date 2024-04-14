@@ -13,7 +13,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 * Install all used dependencies using scoop
 
 ```
-scoop install main/7zip main/gcc main/git main/go main/make main/neovim main/oh-my-posh main/pwsh main/ripgrep main/fd
+scoop install main/7zip main/gcc main/git main/go main/make main/neovim main/oh-my-posh main/pwsh main/ripgrep main/fd main/jq
 ```
 
 ### Configure terminal using oh-my-posh (Optional)
