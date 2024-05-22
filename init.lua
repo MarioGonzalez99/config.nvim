@@ -850,7 +850,32 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
-
+  {
+    'zbirenbaum/copilot.lua',
+    opts = {
+      suggestion = { enabled = true, auto_trigger = true, keymap = { accept = '<tab>' } },
+      panel = {
+        enabled = true,
+        auto_refresh = false,
+        keymap = {
+          jump_prev = '[[',
+          jump_next = ']]',
+          accept = '<CR>',
+          refresh = 'gr',
+          open = '<M-CR>',
+        },
+        layout = {
+          position = 'bottom', -- | top | left | right
+          ratio = 0.4,
+        },
+      },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
+  },
+    
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
