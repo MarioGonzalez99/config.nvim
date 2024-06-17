@@ -935,6 +935,7 @@ require('lazy').setup({
             hide_dotfiles = false,
             hide_gitignore = false,
           },
+          hijack_netrw_behavior = 'disabled',
         },
       }
     end,
