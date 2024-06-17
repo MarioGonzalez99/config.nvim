@@ -405,14 +405,6 @@ require('lazy').setup({
     end,
   },
 
-  { -- Telescope File Explorer
-    'nvim-telescope/telescope-file-browser.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-    config = function()
-      vim.keymap.set('n', '<leader>b', ':Telescope file_browser<CR>', { desc = '[B]rowse Files' })
-    end,
-  },
-
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -895,6 +887,33 @@ require('lazy').setup({
       require('nvim-ts-autotag').setup()
     end,
   },
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('oil').setup {
+        columns = { 'icon' },
+        keymaps = {
+          ['<C-h>'] = false,
+          ['<M-h>'] = 'actions.select_split',
+        },
+        view_options = {
+          show_hidden = true,
+        },
+        default_file_explorer = true,
+
+        -- Open parent directory in current window
+        vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' }),
+
+        -- Open parent directory in floating window
+        vim.keymap.set('n', '<space>-', require('oil').toggle_float),
+      }
+    end,
+  },
+
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.

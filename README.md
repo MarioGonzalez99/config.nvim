@@ -16,6 +16,15 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 scoop install main/7zip main/gcc main/git main/go main/make main/neovim main/oh-my-posh main/pwsh main/ripgrep main/fd main/jq
 ```
 
+* Install language dependencies
+
+```
+scoop bucket add java
+scoop install java/openjdk
+scoop install nodejs
+scoop install python
+```
+
 ### Configure terminal using oh-my-posh (Optional)
 
 * Download JetBrainsMono Nerd Font from website: ['NerdFont'](https://www.nerdfonts.com/font-downloads)
