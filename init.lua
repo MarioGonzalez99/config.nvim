@@ -193,6 +193,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Keybind for copilot chat
+vim.keymap.set('n', '<leader>ccc', ':CopilotChatOpen<CR>', { desc = 'Open copilot chat' })
+vim.keymap.set('x', 'e', ':CopilotChatExplain<CR>', { desc = 'Explain code with copilot' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -879,6 +883,26 @@ require('lazy').setup({
         help = true,
       },
     },
+  },
+
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = 'canary',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
+      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+    },
+    opts = {
+      debug = true, -- Enable debugging
+      window = {
+        layout = 'float',
+        width = 0.7, -- fractional width of parent, or absolute width in columns when > 1
+        height = 0.7, -- fractional height of parent, or absolute height in rows when > 1
+      },
+      show_help = false,
+      -- See Configuration section for rest
+    },
+    -- See Commands section for default commands if you want to lazy load on them
   },
 
   {
