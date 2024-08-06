@@ -852,11 +852,73 @@ require('lazy').setup({
       require('nvim-treesitter.configs').setup(opts)
 
       -- There are additional nvim-treesitter modules that you can use to interact
-      -- with nvim-treesitter. You should go explore a few and see what interests you:
+      -- with nvim-treesitter. you should go explore a few and see what interests you:
       --
-      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      --    - incremental selection: included, see `:help nvim-treesitter-incremental-selection-mod`
+      --    - show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+      --    - treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    end,
+  },
+  { -- highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    opts = {
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true, -- automatically jump forward to textobj, similar to targets.vim
+          keymaps = {
+            -- you can use the capture groups defined in textobjects.scm
+            ['aa'] = '@parameter.outer',
+            ['ia'] = '@parameter.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ic'] = '@class.inner',
+            ['ac'] = '@class.outer',
+            ['ii'] = '@conditional.inner',
+            ['ai'] = '@conditional.outer',
+            ['il'] = '@loop.inner',
+            ['al'] = '@loop.outer',
+            ['at'] = '@comment.outer',
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            [']f'] = '@function.outer',
+            [']]'] = '@class.outer',
+            [']a'] = '@parameter.outer',
+          },
+          goto_next_end = {
+            [']F'] = '@function.outer',
+            [']['] = '@class.outer',
+            [']A'] = '@parameter.outer',
+          },
+          goto_previous_start = {
+            ['[f'] = '@function.outer',
+            ['[['] = '@class.outer',
+            ['[a'] = '@parameter.outer',
+          },
+          goto_previous_end = {
+            ['[F'] = '@function.outer',
+            ['[]'] = '@class.outer',
+            ['[A'] = '@parameter.outer',
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ['<leader>mn'] = '@parameter.inner',
+          },
+          swap_previous = {
+            ['<leader>mp'] = '@parameter.inner',
+          },
+        },
+      },
+    },
+    config = function(_, opts)
+      ---@diagnostic disable-next-line: missing-fields
+      require('nvim-treesitter.configs').setup(opts)
     end,
   },
   {
@@ -869,9 +931,9 @@ require('lazy').setup({
         keymap = {
           jump_prev = '[[',
           jump_next = ']]',
-          accept = '<CR>',
+          accept = '<cr>',
           refresh = 'gr',
-          open = '<M-CR>',
+          open = '<m-cr>',
         },
         layout = {
           position = 'bottom', -- | top | left | right
