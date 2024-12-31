@@ -195,7 +195,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Keybind for copilot chat
 vim.keymap.set('n', '<leader>ccc', ':CopilotChatOpen<CR>', { desc = 'Open copilot chat' })
-vim.keymap.set('x', 'e', ':CopilotChatExplain<CR>', { desc = 'Explain code with copilot' })
+vim.keymap.set('x', '<leader>e', ':CopilotChatExplain<CR>', { desc = 'Explain code with copilot' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
