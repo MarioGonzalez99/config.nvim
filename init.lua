@@ -962,8 +962,26 @@ require('lazy').setup({
     opts = {
       -- add any opts here
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-      provider = 'copilot', -- Recommend using Claude
+      provider = 'openai', -- Recommend using Claude
       auto_suggestions_provider = 'copilot', -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      ---@type AvanteSupportedProvider
+      openai = {
+        endpoint = 'https://api.openai.com/v1',
+        -- model = 'gpt-4o',
+        model = 'gpt-4o-mini',
+        -- model = 'o1-mini',
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 4096,
+      },
+      ---@type AvanteSupportedProvider
+      claude = {
+        endpoint = 'https://api.anthropic.com',
+        model = 'claude-3-5-sonnet-20241022',
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 8000,
+      },
       mappings = {
         --- @class AvanteConflictMappings
         diff = {
