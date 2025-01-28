@@ -965,22 +965,23 @@ require('lazy').setup({
     opts = {
       -- add any opts here
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-      provider = 'openai', -- Recommend using Claude
+      provider = 'deepseek',
       auto_suggestions_provider = 'copilot', -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      vendors = {
+        deepseek = {
+          __inherited_from = 'openai',
+          api_key_name = 'DEEPSEEK_API_KEY',
+          endpoint = 'https://api.deepseek.com',
+          -- model = 'deepseek-reasoner',
+          model = 'deepseek-chat',
+        },
+      },
       ---@type AvanteSupportedProvider
-      -- openai = {
-      --   endpoint = 'https://api.openai.com/v1',
-      --   -- model = 'gpt-4o',
-      --   model = 'gpt-4o-mini',
-      --   -- model = 'o1-mini',
-      --   timeout = 30000, -- Timeout in milliseconds
-      --   temperature = 0,
-      --   max_tokens = 4096,
-      -- },
       openai = {
-        endpoint = 'https://api.deepseek.com/v1',
-        -- model = 'deepseek-chat',
-        model = 'deepseek-reasoner',
+        endpoint = 'https://api.openai.com/v1',
+        -- model = 'gpt-4o',
+        -- model = 'gpt-4o-mini',
+        model = 'o1-mini',
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,
